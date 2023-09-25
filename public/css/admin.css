@@ -1,0 +1,10 @@
+.imgProduct {
+  background-color: white;
+  object-fit: cover;
+  object-position: center;
+  width: 70%;
+  /* max-height: 150px; */
+}
+.imgCover{
+  overflow: hidden;
+}
