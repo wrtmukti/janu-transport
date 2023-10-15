@@ -2,7 +2,7 @@
 @section('content')
 
   <!-- Start Hero Area -->
-  <section class="hero-area">
+  {{-- <section class="hero-area">
       <div class="container">
           <div class="row">
               <div class="col-lg-8 col-12 custom-padding-right">
@@ -78,7 +78,7 @@
               </div>
           </div>
       </div>
-  </section>
+  </section> --}}
   <!-- End Hero Area -->
 
   <!-- Start Trending Product Area -->
@@ -148,8 +148,11 @@
                                                     <li><i class="lni lni-star"></i></li>
                                                     <li><span>4.0 Review(s)</span></li>
                                                 </ul>
-                                                <div class="price">
+                                                <div class="price d-none">
                                                     IDR <span class="priceValue">{{ $vehicle->price }}</span>
+                                                </div>
+                                                <div class="price">
+                                                    <span class="text-primary" >Rp {{  number_format($vehicle->price, 0, ',', '.')  }}</span>,-
                                                 </div>
                                             </div>
                                             
@@ -221,8 +224,11 @@
                                                     <li><i class="lni lni-star"></i></li>
                                                     <li><span>4.0 Review(s)</span></li>
                                                 </ul>
-                                                <div class="price">
+                                                <div class="price d-none">
                                                     IDR <span class="priceValue">{{ $vehicle->price }}</span>
+                                                </div>
+                                                <div class="price">
+                                                    <span class="text-primary" >Rp {{  number_format($vehicle->price, 0, ',', '.')  }}</span>,-
                                                 </div>
                                             </div>
                                             
@@ -294,8 +300,11 @@
                                                     <li><i class="lni lni-star"></i></li>
                                                     <li><span>4.0 Review(s)</span></li>
                                                 </ul>
-                                                <div class="price">
+                                                <div class="price d-none">
                                                     IDR <span class="priceValue">{{ $vehicle->price }}</span>
+                                                </div>
+                                                <div class="price">
+                                                    <span class="text-primary" >Rp {{  number_format($vehicle->price, 0, ',', '.')  }}</span>,-
                                                 </div>
                                             </div>
                                             
@@ -311,79 +320,7 @@
                 @endif
             @endforeach 
           </div>
-          <div class="row justify-content-center mb-5">
-            <div class="section-title">
-                <h2>Helikopter</h2>
-            </div>
-            @foreach ($vehicles as $vehicle)
-                @if ($vehicle->category == 4)
-                   @if ($vehicle->status == 1)                  
-                        <div class="col-lg-3 col-md-6 col-12 mb-3">
-                            <div class="product">
-                                <div class="product-under">
-                                    <div class="product-summary">
-                                        <!-- Start Single Product -->
-                                        <div class="single-product">
-                                            <div class="product-image imgCover p-3">
-                                                <img src="{{ asset('images/vehicle/' . $vehicle->image) }}" class="imgProduct" alt="#">
-                                                <div class="button">
-                                                    <button  class="btn addToCart mb-2" data-product-id="{{ $vehicle->id }}"><i class="lni lni-cart"></i> Add to Cart</button>
-                                                    <form action="/order/direct" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" name="vehicle_id" value="{{ $vehicle->id }}">
-                                                        <button  type="submit" class="btn btn-success">Pesan Sekarang</button>
-                                                    </form>
-                                                </div>
-                                                {{-- <div class="row justify-content-center">
-                                                    <div class="col-8">
-                                                    </div>
-                                                </div> --}}
-                                            </div>
-                                            <div class="product-info">
-                                                @switch($vehicle->category)
-                                                    @case(1)
-                                                        <span class="category">Motor</span>
-                                                        @break
-                                                        @case(2)
-                                                        <span class="category">Mobil</span>
-                                                        @break
-                                                        @case(3)
-                                                        <span class="category">Bus</span>
-                                                        @break
-                                                        @case(4)
-                                                        <span class="category">Helikopter</span>
-                                                        @break
-                                                    @default
-                                                        
-                                                @endswitch
-                                                <h4 class="title">
-                                                    <a  class="productName" href="">{{ $vehicle->name }}</a>
-                                                </h4>
-                                                <ul class="review">
-                                                    <li><i class="lni lni-star-filled"></i></li>
-                                                    <li><i class="lni lni-star-filled"></i></li>
-                                                    <li><i class="lni lni-star-filled"></i></li>
-                                                    <li><i class="lni lni-star-filled"></i></li>
-                                                    <li><i class="lni lni-star"></i></li>
-                                                    <li><span>4.0 Review(s)</span></li>
-                                                </ul>
-                                                <div class="price">
-                                                    IDR <span class="priceValue">{{ $vehicle->price }}</span>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                        <!-- End Single Product -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    
-                   @endif
 
-                @endif
-            @endforeach 
-          </div>
       </div>
   </section>
   <!-- End Trending Product Area -->
